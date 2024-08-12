@@ -1,0 +1,29 @@
+---
+title: "Diamonsplot"
+author: "Yvonne"
+date: "2024-08-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+```{r}
+# Get the current date and time
+current_time <- Sys.time()
+
+# Create the plot
+p <- ggplot(diamonds, aes(x=carat, y=price)) +
+  geom_point(alpha=0.5, color='blue') +
+  labs(title='Diamonds Dataset: Carat vs Price',
+       x='Carat',
+       y='Price',
+       caption=paste('Generated on:', current_time)) +
+  theme_minimal()
+
+# Print the plot
+print(p)
+```
+
